@@ -1,6 +1,7 @@
-import { useState, Fragment } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import OutlineTabs from "./OutlineTabs";
+import { Link } from "react-router-dom";
 
 function MoreInfo({
   isOpen,
@@ -11,7 +12,7 @@ function MoreInfo({
 }) {
   return (
     <>
-      <Transition appear show={true} as={Fragment}>
+      <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-10"
@@ -28,7 +29,6 @@ function MoreInfo({
           >
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
-
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
@@ -47,6 +47,19 @@ function MoreInfo({
                   >
                     Maersk North America Market Update - May 2023 - Maersk
                   </Dialog.Title>
+                  <Link
+                    className="hover:cursor-pointer m-4 p-4 text-blue-400"
+                    target="_blank"
+                    to="https://news.google.com/rss/articles/CBMiT2h0dHBzOi8vd3d3Lm1hZXJzay5jb20vbmV3cy9hcnRpY2xlcy8yMDIzLzA1LzE5L25vcnRoLWFtZXJpY2EtbWFya2V0LXVwZGF0ZS1tYXnSAQA?oc=5&hl=en-SG&gl=SG&ceid=SG:en"
+                  >
+                    News Link
+                  </Link>
+                  <p
+                    onClick={() => setIsOpen(false)}
+                    className="cursor-pointer font-bold tracking-wider absolute right-6 top-2"
+                  >
+                    X
+                  </p>
                   <div className="mt-2">
                     <OutlineTabs />
                   </div>

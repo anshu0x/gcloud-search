@@ -14,3 +14,17 @@ body {
   background: -webkit-linear-gradient(to right, #a5fecb, #20bdff, #5433ff);
   background: linear-gradient(to right, #a5fecb, #20bdff, #5433ff); */
 }
+
+
+.grid-outlined{
+  display: grid;
+  grid-template-columns: 10% 90%;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-outlined{
+    display: flex;
+    flex-direction: column;
+  }
+}
